@@ -11,13 +11,14 @@ config = {
   "messagingSenderId": "117475133009",
   "appId": "1:117475133009:web:bc8074246472867b559a70",
   "measurementId": "G-2WMGZBQ69G",
-  "databaseURL": ""
+  "databaseURL": "https://romie-projecty2-default-rtdb.europe-west1.firebasedatabase.app/"
 
   }
 
 
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+db = firebase.database()
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'super-secret-key'
@@ -38,7 +39,6 @@ def signin():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template("signup.html")
     error = ""
     if request.method == 'POST':
        email = request.form['email']
