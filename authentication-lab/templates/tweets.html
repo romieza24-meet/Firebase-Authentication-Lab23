@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tweets</title>
+</head>
+<body>
+
+    <p>
+        {% for i in tweets %}
+        <li> 
+            {{tweets[i]['title']}} 
+            <br>
+            {{tweets[i]['text']}} 
+        </li>
+        {% endfor %}
+
+    </p>
+    <a href="/add_tweet"><button>Add Tweet</button></a>
+</body>
+</html>
